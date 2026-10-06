@@ -116,7 +116,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Manrope", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   margin: 0;
   font-weight: 700;
 }
@@ -606,7 +606,7 @@ input[type="checkbox"] {
   height: 12px;
 }
 .kpi-value {
-  font-family: "Manrope", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 21px;
   font-weight: 750;
   margin: 13px 0 11px;
@@ -720,7 +720,7 @@ input[type="checkbox"] {
   padding: 0 21px;
 }
 .chart-summary > strong {
-  font-family: "Manrope", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 24px;
   font-weight: 750;
 }
@@ -1431,7 +1431,7 @@ td small {
   border: 0;
 }
 .community-stats strong {
-  font-family: "Manrope", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 23px;
   font-weight: 750;
 }
@@ -2390,7 +2390,7 @@ td small {
 }
 .client-commerce strong {
   font-size: 16px;
-  font-family: "Manrope", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
 }
 .client-commerce div > span {
   display: block;
@@ -2673,7 +2673,7 @@ td small {
 }
 .order-total strong {
   font-size: 19px;
-  font-family: "Manrope", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
 }
 .edit-order-line {
   display: flex;
@@ -2793,7 +2793,7 @@ td small {
 }
 .knowledge-product-footer > strong {
   font-size: 17px;
-  font-family: "Manrope", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
 }
 .knowledge-product small {
   font-size: 9px;
@@ -2954,7 +2954,7 @@ td small {
 }
 .report-mini-stats strong {
   font-size: 24px;
-  font-family: "Manrope", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
 }
 .report-mini-stats div > span {
   display: block;
@@ -3329,7 +3329,7 @@ td small {
 }
 .login-floating-stats strong {
   font-size: 25px;
-  font-family: "Manrope", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 750;
   display: block;
 }
