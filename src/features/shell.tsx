@@ -29,6 +29,8 @@ import {
   Menu,
   Command,
   ArrowRight,
+  Sun,
+  Moon,
 } from "lucide-react";
 import { Button, Avatar, Badge, IconButton, Modal } from "./common";
 import { logoUrl } from "./assets";
@@ -130,6 +132,8 @@ export function AppShell({ children }: { children: ReactNode }) {
         <nav>
           {navigation.map((n) => (
             <div key={n.label}>
+              {!collapsed && n.label === "Community Manager IA" && <div className="nav-section-label">INTELLIGENCE ARTIFICIELLE</div>}
+              {!collapsed && n.label === "Rapports" && <div className="nav-section-label">GESTION & ANALYSE</div>}
               {n.children ? (
                 <>
                   <Button
@@ -242,6 +246,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             <strong>{label}</strong>
           </div>
           <div className="topbar-tools">
+            <ThemeToggle />
             <Button variant="ghost" className="global-search" onClick={() => setSearchOpen(true)}>
               <Search size={16} />
               <span>Rechercher…</span>
@@ -262,7 +267,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             </Button>
           </div>
         </header>
-        <main className="main-content" key={location.pathname}>
+        <main className={`main-content ${location.pathname === "/" ? "direction-dashboard" : ""}`} key={location.pathname}>
           {children}
           <footer className="app-footer">
             <span>© 2026 BPPHARM · Photo White</span>
@@ -395,6 +400,14 @@ export function AppShell({ children }: { children: ReactNode }) {
       </Modal>
       <Toaster richColors position="bottom-right" />
     </div>
+  );
+}
+export function ThemeToggle() {
+  const { darkMode, setDarkMode } = useDemo();
+  return (
+    <Button variant="ghost" size="icon" className="theme-toggle" aria-label={darkMode ? "Activer le mode clair" : "Activer le mode sombre"} title={darkMode ? "Mode clair" : "Mode sombre"} onClick={() => setDarkMode(!darkMode)}>
+      {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+    </Button>
   );
 }
 export function QuickActions() {

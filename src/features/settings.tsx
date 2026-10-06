@@ -32,6 +32,7 @@ import { Slider } from "@/components/ui/slider";
 import { useDemo } from "./store";
 import { logoUrl } from "./assets";
 import { CosmeticScene } from "./cosmetic-scene";
+import { ThemeToggle } from "./shell";
 export function Configuration({
   kind = "community",
 }: {
@@ -651,49 +652,19 @@ export function Login() {
     }, 1200);
   };
   return (
-    <div className="login-page">
+    <div className="login-page login-focused">
       <div className="login-visual">
         <div className="login-silk" aria-hidden="true" />
-        <div className="login-brand">
-          <img src={logoUrl} alt="Photo White" />
-          <Badge>BPPHARM</Badge>
-        </div>
-        <div className="login-copy">
-          <div className="eyebrow">VOTRE ACTIVITÉ. UNE NOUVELLE DIMENSION.</div>
-          <h1>Pilotez votre activité avec l’intelligence artificielle.</h1>
-          <p>
-            Marketing, service client, commandes et performances réunis dans une seule plateforme.
-          </p>
-        </div>
         <CosmeticScene />
-        <div className="login-floating-stats">
-          <div>
-            <MessageCircle />
-            <strong>1 240</strong>
-            <span>conversations traitées</span>
-          </div>
-          <div>
-            <ShieldCheck />
-            <strong>94 %</strong>
-            <span>de demandes prises en charge</span>
-          </div>
-          <div>
-            <Clock3 />
-            <strong>128 h</strong>
-            <span>économisées</span>
-          </div>
-        </div>
-        <div className="login-bottom">L’expertise dermocosmétique. L’intelligence en plus.</div>
       </div>
       <div className="login-form-side">
+        <div className="login-theme"><ThemeToggle /></div>
         <span className="login-security">
           <ShieldCheck size={14} />
           Espace professionnel sécurisé
         </span>
         <div className="login-form">
-          <span className="login-leaf">
-            <Leaf size={26} />
-          </span>
+          <div className="login-form-brand"><img src={logoUrl} alt="Photo White" /><span>BPPHARM · WORKSPACE</span></div>
           <h2>Bienvenue.</h2>
           <p>Connectez-vous à votre espace Photo White.</p>
           <form

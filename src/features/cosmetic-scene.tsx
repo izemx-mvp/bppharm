@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { logoUrl, productImages } from "./assets";
+import { logoUrl } from "./assets";
 
 /** Browser-only, progressively enhanced product sculpture. */
 export function CosmeticScene() {
@@ -286,7 +286,7 @@ export function CosmeticScene() {
       };
     }
     mount().catch(() => {
-      /* Keep official product photography when WebGL is unavailable. */
+      /* Keep the image-free stage when WebGL is unavailable. */
     });
     return () => {
       disposed = true;
@@ -299,12 +299,7 @@ export function CosmeticScene() {
       role="img"
       aria-label="Photo White : protection solaire et sérum, produits en trois dimensions animés"
     >
-      <div className="cosmetic-fallback" aria-hidden="true">
-        <img src={productImages[0]} alt="" />
-        <img src={productImages[4]} alt="" />
-      </div>
       <div className="cosmetic-canvas" ref={hostRef} aria-hidden="true" />
-      <span className="scene-caption">PHOTO WHITE / COLLECTION ÉCLAT</span>
     </div>
   );
 }
