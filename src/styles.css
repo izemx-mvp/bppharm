@@ -3569,7 +3569,7 @@ td small {
     height: 250px;
   }
 }
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .app-frame {
     --sidebar-width: 218px;
   }
