@@ -132,8 +132,12 @@ export function AppShell({ children }: { children: ReactNode }) {
         <nav>
           {navigation.map((n) => (
             <div key={n.label}>
-              {!collapsed && n.label === "Community Manager IA" && <div className="nav-section-label">INTELLIGENCE ARTIFICIELLE</div>}
-              {!collapsed && n.label === "Rapports" && <div className="nav-section-label">GESTION & ANALYSE</div>}
+              {!collapsed && n.label === "Community Manager IA" && (
+                <div className="nav-section-label">INTELLIGENCE ARTIFICIELLE</div>
+              )}
+              {!collapsed && n.label === "Rapports" && (
+                <div className="nav-section-label">GESTION & ANALYSE</div>
+              )}
               {n.children ? (
                 <>
                   <Button
@@ -267,7 +271,10 @@ export function AppShell({ children }: { children: ReactNode }) {
             </Button>
           </div>
         </header>
-        <main className={`main-content ${location.pathname === "/" ? "direction-dashboard" : ""}`} key={location.pathname}>
+        <main
+          className={`main-content ${location.pathname === "/" ? "direction-dashboard" : ""}`}
+          key={location.pathname}
+        >
           {children}
           <footer className="app-footer">
             <span>© 2026 BPPHARM · Photo White</span>
@@ -405,7 +412,14 @@ export function AppShell({ children }: { children: ReactNode }) {
 export function ThemeToggle() {
   const { darkMode, setDarkMode } = useDemo();
   return (
-    <Button variant="ghost" size="icon" className="theme-toggle" aria-label={darkMode ? "Activer le mode clair" : "Activer le mode sombre"} title={darkMode ? "Mode clair" : "Mode sombre"} onClick={() => setDarkMode(!darkMode)}>
+    <Button
+      variant="ghost"
+      size="icon"
+      className="theme-toggle"
+      aria-label={darkMode ? "Activer le mode clair" : "Activer le mode sombre"}
+      title={darkMode ? "Mode clair" : "Mode sombre"}
+      onClick={() => setDarkMode(!darkMode)}
+    >
       {darkMode ? <Sun size={18} /> : <Moon size={18} />}
     </Button>
   );

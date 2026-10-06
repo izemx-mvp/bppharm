@@ -658,13 +658,18 @@ export function Login() {
         <CosmeticScene />
       </div>
       <div className="login-form-side">
-        <div className="login-theme"><ThemeToggle /></div>
+        <div className="login-theme">
+          <ThemeToggle />
+        </div>
         <span className="login-security">
           <ShieldCheck size={14} />
           Espace professionnel sécurisé
         </span>
         <div className="login-form">
-          <div className="login-form-brand"><img src={logoUrl} alt="Photo White" /><span>BPPHARM · WORKSPACE</span></div>
+          <div className="login-form-brand">
+            <img src={logoUrl} alt="Photo White" />
+            <span>BPPHARM · WORKSPACE</span>
+          </div>
           <h2>Bienvenue.</h2>
           <p>Connectez-vous à votre espace Photo White.</p>
           <form
