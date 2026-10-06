@@ -159,16 +159,19 @@ export function Select({
   onChange,
   options,
   label,
+  id,
 }: {
   value: string;
   onChange: (v: string) => void;
   options: string[];
   label?: string;
+  id?: string;
 }) {
   return (
     <select
       className="field-select"
-      aria-label={label || options[0]}
+      id={id}
+      aria-label={id ? undefined : label || options[0]}
       value={value}
       onChange={(e) => onChange(e.target.value)}
     >
