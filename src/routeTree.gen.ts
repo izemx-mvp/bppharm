@@ -10,33 +10,219 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AgentSettingsRouteImport } from './routes/agent-settings'
+import { Route as ApplicationsRouteImport } from './routes/applications'
+import { Route as CommunityRouteImport } from './routes/community'
+import { Route as CommunityConfigRouteImport } from './routes/community-config'
+import { Route as ConversationsRouteImport } from './routes/conversations'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as HistoryRouteImport } from './routes/history'
+import { Route as KnowledgeRouteImport } from './routes/knowledge'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as OrdersRouteImport } from './routes/orders'
+import { Route as PlanningRouteImport } from './routes/planning'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as ValidationRouteImport } from './routes/validation'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AgentSettingsRoute = AgentSettingsRouteImport.update({
+  id: '/agent-settings',
+  path: '/agent-settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApplicationsRoute = ApplicationsRouteImport.update({
+  id: '/applications',
+  path: '/applications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityConfigRoute = CommunityConfigRouteImport.update({
+  id: '/community-config',
+  path: '/community-config',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConversationsRoute = ConversationsRouteImport.update({
+  id: '/conversations',
+  path: '/conversations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoryRoute = HistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KnowledgeRoute = KnowledgeRouteImport.update({
+  id: '/knowledge',
+  path: '/knowledge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrdersRoute = OrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlanningRoute = PlanningRouteImport.update({
+  id: '/planning',
+  path: '/planning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ValidationRoute = ValidationRouteImport.update({
+  id: '/validation',
+  path: '/validation',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agent-settings': typeof AgentSettingsRoute
+  '/applications': typeof ApplicationsRoute
+  '/community': typeof CommunityRoute
+  '/community-config': typeof CommunityConfigRoute
+  '/conversations': typeof ConversationsRoute
+  '/faq': typeof FaqRoute
+  '/history': typeof HistoryRoute
+  '/knowledge': typeof KnowledgeRoute
+  '/login': typeof LoginRoute
+  '/orders': typeof OrdersRoute
+  '/planning': typeof PlanningRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
+  '/validation': typeof ValidationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agent-settings': typeof AgentSettingsRoute
+  '/applications': typeof ApplicationsRoute
+  '/community': typeof CommunityRoute
+  '/community-config': typeof CommunityConfigRoute
+  '/conversations': typeof ConversationsRoute
+  '/faq': typeof FaqRoute
+  '/history': typeof HistoryRoute
+  '/knowledge': typeof KnowledgeRoute
+  '/login': typeof LoginRoute
+  '/orders': typeof OrdersRoute
+  '/planning': typeof PlanningRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
+  '/validation': typeof ValidationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agent-settings': typeof AgentSettingsRoute
+  '/applications': typeof ApplicationsRoute
+  '/community': typeof CommunityRoute
+  '/community-config': typeof CommunityConfigRoute
+  '/conversations': typeof ConversationsRoute
+  '/faq': typeof FaqRoute
+  '/history': typeof HistoryRoute
+  '/knowledge': typeof KnowledgeRoute
+  '/login': typeof LoginRoute
+  '/orders': typeof OrdersRoute
+  '/planning': typeof PlanningRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
+  '/validation': typeof ValidationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/agent-settings'
+    | '/applications'
+    | '/community'
+    | '/community-config'
+    | '/conversations'
+    | '/faq'
+    | '/history'
+    | '/knowledge'
+    | '/login'
+    | '/orders'
+    | '/planning'
+    | '/reports'
+    | '/settings'
+    | '/validation'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/agent-settings'
+    | '/applications'
+    | '/community'
+    | '/community-config'
+    | '/conversations'
+    | '/faq'
+    | '/history'
+    | '/knowledge'
+    | '/login'
+    | '/orders'
+    | '/planning'
+    | '/reports'
+    | '/settings'
+    | '/validation'
+  id:
+    | '__root__'
+    | '/'
+    | '/agent-settings'
+    | '/applications'
+    | '/community'
+    | '/community-config'
+    | '/conversations'
+    | '/faq'
+    | '/history'
+    | '/knowledge'
+    | '/login'
+    | '/orders'
+    | '/planning'
+    | '/reports'
+    | '/settings'
+    | '/validation'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgentSettingsRoute: typeof AgentSettingsRoute
+  ApplicationsRoute: typeof ApplicationsRoute
+  CommunityRoute: typeof CommunityRoute
+  CommunityConfigRoute: typeof CommunityConfigRoute
+  ConversationsRoute: typeof ConversationsRoute
+  FaqRoute: typeof FaqRoute
+  HistoryRoute: typeof HistoryRoute
+  KnowledgeRoute: typeof KnowledgeRoute
+  LoginRoute: typeof LoginRoute
+  OrdersRoute: typeof OrdersRoute
+  PlanningRoute: typeof PlanningRoute
+  ReportsRoute: typeof ReportsRoute
+  SettingsRoute: typeof SettingsRoute
+  ValidationRoute: typeof ValidationRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +234,123 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/agent-settings': {
+      id: '/agent-settings'
+      path: '/agent-settings'
+      fullPath: '/agent-settings'
+      preLoaderRoute: typeof AgentSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/applications': {
+      id: '/applications'
+      path: '/applications'
+      fullPath: '/applications'
+      preLoaderRoute: typeof ApplicationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community-config': {
+      id: '/community-config'
+      path: '/community-config'
+      fullPath: '/community-config'
+      preLoaderRoute: typeof CommunityConfigRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conversations': {
+      id: '/conversations'
+      path: '/conversations'
+      fullPath: '/conversations'
+      preLoaderRoute: typeof ConversationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/history': {
+      id: '/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof HistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/knowledge': {
+      id: '/knowledge'
+      path: '/knowledge'
+      fullPath: '/knowledge'
+      preLoaderRoute: typeof KnowledgeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/orders': {
+      id: '/orders'
+      path: '/orders'
+      fullPath: '/orders'
+      preLoaderRoute: typeof OrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/planning': {
+      id: '/planning'
+      path: '/planning'
+      fullPath: '/planning'
+      preLoaderRoute: typeof PlanningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/validation': {
+      id: '/validation'
+      path: '/validation'
+      fullPath: '/validation'
+      preLoaderRoute: typeof ValidationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgentSettingsRoute: AgentSettingsRoute,
+  ApplicationsRoute: ApplicationsRoute,
+  CommunityRoute: CommunityRoute,
+  CommunityConfigRoute: CommunityConfigRoute,
+  ConversationsRoute: ConversationsRoute,
+  FaqRoute: FaqRoute,
+  HistoryRoute: HistoryRoute,
+  KnowledgeRoute: KnowledgeRoute,
+  LoginRoute: LoginRoute,
+  OrdersRoute: OrdersRoute,
+  PlanningRoute: PlanningRoute,
+  ReportsRoute: ReportsRoute,
+  SettingsRoute: SettingsRoute,
+  ValidationRoute: ValidationRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
