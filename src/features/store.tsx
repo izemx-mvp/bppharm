@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import {
   seedOrders,
   seedIdeas,
@@ -12,6 +12,10 @@ import {
   type RecordItem,
 } from "./data";
 function useDemoState() {
+  const [darkMode, setDarkMode] = useState(true);
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", darkMode);
+  }, [darkMode]);
   const [orders, setOrders] = useState<Order[]>(seedOrders);
   const [ideas, setIdeas] = useState<Idea[]>(seedIdeas);
   const [conversations, setConversations] = useState<Conversation[]>(seedConversations);
@@ -51,6 +55,8 @@ function useDemoState() {
     description: "L’expertise dermocosmétique au service de votre peau.",
   });
   return {
+    darkMode,
+    setDarkMode,
     orders,
     setOrders,
     ideas,
