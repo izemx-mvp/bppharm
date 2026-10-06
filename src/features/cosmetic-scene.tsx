@@ -27,7 +27,7 @@ export function CosmeticScene() {
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
       renderer.setClearAlpha(0);
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure = 1.15;
+      renderer.toneMappingExposure = 0.85;
       renderer.shadowMap.enabled = true;
       renderer.shadowMap.type = THREE.PCFSoftShadowMap;
       host.appendChild(renderer.domElement);
@@ -41,12 +41,14 @@ export function CosmeticScene() {
       scene.environment = environment.texture;
       room.dispose();
       pmrem.dispose();
-      const ambient = new THREE.HemisphereLight(color("--card"), color("--scene-sage"), 2.2);
+      const ambient = new THREE.HemisphereLight(color("--card"), color("--scene-sage"), 1.2);
       scene.add(ambient);
-      const key = new THREE.DirectionalLight(color("--card"), 4);
+      const key = new THREE.DirectionalLight(color("--card"), 2.5);
       key.position.set(-3, 6, 5);
       key.castShadow = true;
       key.shadow.mapSize.set(1024, 1024);
+      key.shadow.radius = 4;
+      key.shadow.normalBias = 0.025;
       scene.add(key);
       const rim = new THREE.DirectionalLight(color("--gold-soft"), 3);
       rim.position.set(4, 2, -2);
@@ -127,7 +129,7 @@ export function CosmeticScene() {
         texture.colorSpace = THREE.SRGBColorSpace;
         texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
         labelTextures.push(texture);
-        const label = new THREE.Mesh(new THREE.PlaneGeometry(width, height), new THREE.MeshStandardMaterial({ map: texture, roughness: 0.4 }));
+        const label = new THREE.Mesh(new THREE.PlaneGeometry(width, height), new THREE.MeshBasicMaterial({ map: texture, toneMapped: false }));
         label.position.set(0, y, z);
         parent.add(label);
         const logo = new Image();
