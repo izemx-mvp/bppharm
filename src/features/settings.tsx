@@ -39,10 +39,21 @@ export function Configuration({
 }) {
   const { config, setConfig } = useDemo();
   const [draft, setDraft] = useState({ ...config });
-  const [tones, setTones] = useState((config[`${kind}-tones`] || (kind === "agent" ? "Chaleureux, Professionnel" : "Premium, Éducatif")).split(", "));
-  const [objectives, setObjectives] = useState((config["objectives"] || "Notoriété, Vente").split(", "));
-  const [platforms, setPlatforms] = useState((config["platforms"] || "true,true,false,false").split(",").map(v=>v==="true"));
-  const [days, setDays] = useState((config["days"] || "true,true,true,true,true,false,false").split(",").map(v=>v==="true"));
+  const [tones, setTones] = useState(
+    (
+      config[`${kind}-tones`] ||
+      (kind === "agent" ? "Chaleureux, Professionnel" : "Premium, Éducatif")
+    ).split(", "),
+  );
+  const [objectives, setObjectives] = useState(
+    (config["objectives"] || "Notoriété, Vente").split(", "),
+  );
+  const [platforms, setPlatforms] = useState(
+    (config["platforms"] || "true,true,false,false").split(",").map((v) => v === "true"),
+  );
+  const [days, setDays] = useState(
+    (config["days"] || "true,true,true,true,true,false,false").split(",").map((v) => v === "true"),
+  );
   const [rules, setRules] = useState([
     {
       id: 1,
