@@ -39,10 +39,10 @@ export function Configuration({
 }) {
   const { config, setConfig } = useDemo();
   const [draft, setDraft] = useState({ ...config });
-  const [tones, setTones] = useState(["Premium", "Éducatif"]);
-  const [objectives, setObjectives] = useState(["Notoriété", "Vente"]);
-  const [platforms, setPlatforms] = useState([true, true, false, false]);
-  const [days, setDays] = useState([true, true, true, true, true, false, false]);
+  const [tones, setTones] = useState((config[`${kind}-tones`] || (kind === "agent" ? "Chaleureux, Professionnel" : "Premium, Éducatif")).split(", "));
+  const [objectives, setObjectives] = useState((config["objectives"] || "Notoriété, Vente").split(", "));
+  const [platforms, setPlatforms] = useState((config["platforms"] || "true,true,false,false").split(",").map(v=>v==="true"));
+  const [days, setDays] = useState((config["days"] || "true,true,true,true,true,false,false").split(",").map(v=>v==="true"));
   const [rules, setRules] = useState([
     {
       id: 1,
@@ -67,15 +67,15 @@ export function Configuration({
   const [tab, setTab] = useState("Profil");
   const [avatar, setAvatar] = useState("");
   const [alerts, setAlerts] = useState([true, true, true, false]);
-  const [start, setStart] = useState("09:00");
-  const [end, setEnd] = useState("18:00");
+  const [start, setStart] = useState(config["start"] || "09:00");
+  const [end, setEnd] = useState(config["end"] || "18:00");
   const field = (key: string, value: string) => setDraft({ ...draft, [key]: value });
   const toggle = (values: string[], value: string) =>
     values.includes(value) ? values.filter((v) => v !== value) : [...values, value];
   const save = () => {
     setConfig({
       ...draft,
-      tones: tones.join(", "),
+      [`${kind}-tones`]: tones.join(", "),
       objectives: objectives.join(", "),
       platforms: platforms.join(","),
       days: days.join(","),

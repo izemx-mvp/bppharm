@@ -437,6 +437,7 @@ export function Applications() {
   const { connections, setConnections } = useDemo();
   const [config, setConfig] = useState<number | null>(null);
   const [account, setAccount] = useState("Photo White · Compte professionnel");
+  const [syncFrequency, setSyncFrequency] = useState("Toutes les 5 minutes");
   const [loading, setLoading] = useState<number | null>(null);
   const apps = ["WhatsApp Business", "Site Photo White", "Instagram", "Facebook", "Messenger"];
   const icons = [MessageCircle, Globe, Instagram, Facebook, MessageCircle];
@@ -541,8 +542,8 @@ export function Applications() {
         </FormField>
         <FormField label="Synchronisation">
           <Select
-            value="Toutes les 5 minutes"
-            onChange={() => toast.success("Fréquence de synchronisation enregistrée")}
+            value={syncFrequency}
+            onChange={setSyncFrequency}
             options={["Toutes les 5 minutes", "Toutes les 15 minutes", "Toutes les heures"]}
           />
         </FormField>

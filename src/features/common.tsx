@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useState, useId, Children, isValidElement, cloneElement, type ReactElement, type ReactNode } from "react";
 import {
   ArrowUpRight,
   Check,
@@ -234,11 +234,23 @@ export function Pagination({
   );
 }
 export function FormField({ label, children }: { label: string; children: ReactNode }) {
+  const id = useId();
+  let linked = false;
+  const linkControl = (node: ReactNode): ReactNode => Children.map(node, child => {
+    if (!isValidElement(child)) return child;
+    const element = child as ReactElement<{id?:string;children?:ReactNode}>;
+    if (!linked && (child.type === "input" || child.type === "textarea" || child.type === Select)) {
+      linked = true;
+      return cloneElement(element, { id });
+    }
+    if (element.props.children) return cloneElement(element, {}, linkControl(element.props.children));
+    return child;
+  });
   return (
-    <label className="form-field">
-      <span>{label}</span>
-      {children}
-    </label>
+    <div className="form-field">
+      <label htmlFor={id}>{label}</label>
+      {linkControl(children)}
+    </div>
   );
 }
 export function Modal({
