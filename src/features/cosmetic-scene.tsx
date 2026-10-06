@@ -176,7 +176,7 @@ export function CosmeticScene() {
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
       const clock = new THREE.Clock();
       let visible = true;
-      const visibility = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; });
+      const visibility = new IntersectionObserver(([entry]) => { visible = entry?.isIntersecting ?? false; });
       visibility.observe(host);
       renderer.setAnimationLoop(() => {
         if (disposed || !visible || document.hidden) return;
