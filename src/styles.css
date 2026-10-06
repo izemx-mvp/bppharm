@@ -5465,6 +5465,29 @@ body {
     padding: 20px 18px;
   }
 }
+.idea-preview,
+.detail-preview,
+.post-preview,
+.knowledge-product-image,
+.product-thumb,
+.calendar-post-detail > img,
+.order-items img {
+  background: var(--product-photo-surface);
+}
+.idea-preview > img,
+.detail-preview img,
+.post-preview > img,
+.knowledge-product-image > img {
+  padding: 12px;
+  max-width: 100%;
+}
+.community-feature h2,
+.community-feature p {
+  color: var(--editorial-ink);
+}
+.community-feature p {
+  max-width: 320px;
+}
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
