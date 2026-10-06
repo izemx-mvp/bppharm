@@ -660,9 +660,7 @@ export function Login() {
         </div>
         <div className="login-copy">
           <div className="eyebrow">VOTRE ACTIVITÉ. UNE NOUVELLE DIMENSION.</div>
-          <h1>
-            Pilotez votre activité avec l’intelligence artificielle.
-          </h1>
+          <h1>Pilotez votre activité avec l’intelligence artificielle.</h1>
           <p>
             Marketing, service client, commandes et performances réunis dans une seule plateforme.
           </p>

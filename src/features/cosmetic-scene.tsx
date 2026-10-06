@@ -12,7 +12,8 @@ export function CosmeticScene() {
     let cleanup = () => {};
     async function mount() {
       const THREE = await import("three");
-      const { RoomEnvironment } = await import("three/examples/jsm/environments/RoomEnvironment.js");
+      const { RoomEnvironment } =
+        await import("three/examples/jsm/environments/RoomEnvironment.js");
       if (disposed || !host) return;
       const styles = getComputedStyle(host);
       const sample = document.createElement("canvas").getContext("2d");
@@ -23,7 +24,11 @@ export function CosmeticScene() {
         const [r, g, b] = sample.getImageData(0, 0, 1, 1).data;
         return new THREE.Color(`rgb(${r},${g},${b})`);
       };
-      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "low-power" });
+      const renderer = new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true,
+        powerPreference: "low-power",
+      });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
       renderer.setClearAlpha(0);
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -55,11 +60,41 @@ export function CosmeticScene() {
       scene.add(rim);
       const sculpture = new THREE.Group();
       scene.add(sculpture);
-      const ivory = new THREE.MeshPhysicalMaterial({ color: color("--scene-ivory"), roughness: 0.24, metalness: 0.06, clearcoat: 1, clearcoatRoughness: 0.2 });
-      const gold = new THREE.MeshStandardMaterial({ color: color("--scene-gold"), metalness: 0.87, roughness: 0.24 });
-      const glass = new THREE.MeshPhysicalMaterial({ color: color("--scene-glass"), transmission: 0.72, thickness: 0.6, roughness: 0.12, metalness: 0.02, ior: 1.46, transparent: true, opacity: 0.9, clearcoat: 1 });
-      const pale = new THREE.MeshStandardMaterial({ color: color("--scene-sage"), roughness: 0.58 });
-      const cylinder = (parent: InstanceType<typeof THREE.Group>, radius: number, height: number, y: number, material: InstanceType<typeof THREE.Material>, top = radius) => {
+      const ivory = new THREE.MeshPhysicalMaterial({
+        color: color("--scene-ivory"),
+        roughness: 0.24,
+        metalness: 0.06,
+        clearcoat: 1,
+        clearcoatRoughness: 0.2,
+      });
+      const gold = new THREE.MeshStandardMaterial({
+        color: color("--scene-gold"),
+        metalness: 0.87,
+        roughness: 0.24,
+      });
+      const glass = new THREE.MeshPhysicalMaterial({
+        color: color("--scene-glass"),
+        transmission: 0.72,
+        thickness: 0.6,
+        roughness: 0.12,
+        metalness: 0.02,
+        ior: 1.46,
+        transparent: true,
+        opacity: 0.9,
+        clearcoat: 1,
+      });
+      const pale = new THREE.MeshStandardMaterial({
+        color: color("--scene-sage"),
+        roughness: 0.58,
+      });
+      const cylinder = (
+        parent: InstanceType<typeof THREE.Group>,
+        radius: number,
+        height: number,
+        y: number,
+        material: InstanceType<typeof THREE.Material>,
+        top = radius,
+      ) => {
         const mesh = new THREE.Mesh(new THREE.CylinderGeometry(top, radius, height, 96), material);
         mesh.position.y = y;
         mesh.castShadow = true;
@@ -80,7 +115,15 @@ export function CosmeticScene() {
       const dome = new THREE.Mesh(new THREE.SphereGeometry(0.2, 48, 24), ivory);
       dome.position.y = 1.77;
       serum.add(dome);
-      const liquid = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.45, 1.14, 64), new THREE.MeshPhysicalMaterial({ color: color("--scene-serum"), transparent: true, opacity: 0.28, roughness: 0.18 }));
+      const liquid = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.45, 0.45, 1.14, 64),
+        new THREE.MeshPhysicalMaterial({
+          color: color("--scene-serum"),
+          transparent: true,
+          opacity: 0.28,
+          roughness: 0.18,
+        }),
+      );
       liquid.position.y = -0.5;
       serum.add(liquid);
       const pipette = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 1.7, 24), ivory);
@@ -92,7 +135,16 @@ export function CosmeticScene() {
       sunscreen.rotation.z = 0.16;
       sunscreen.rotation.y = 0.12;
       sculpture.add(sunscreen);
-      const profile = [[0,-1.1],[0.43,-1.1],[0.51,-0.98],[0.55,-0.6],[0.6,0.4],[0.58,0.85],[0.5,1],[0,1]].map(([x,y]) => new THREE.Vector2(x,y));
+      const profile = [
+        [0, -1.1],
+        [0.43, -1.1],
+        [0.51, -0.98],
+        [0.55, -0.6],
+        [0.6, 0.4],
+        [0.58, 0.85],
+        [0.5, 1],
+        [0, 1],
+      ].map(([x, y]) => new THREE.Vector2(x, y));
       const tube = new THREE.Mesh(new THREE.LatheGeometry(profile, 96), ivory);
       tube.scale.z = 0.62;
       tube.castShadow = true;
@@ -103,9 +155,18 @@ export function CosmeticScene() {
       seam.scale.z = 0.72;
 
       const labelTextures: InstanceType<typeof THREE.Texture>[] = [];
-      const addLabel = (parent: InstanceType<typeof THREE.Group>, title: string, subtitle: string, z: number, y: number, width: number, height: number) => {
+      const addLabel = (
+        parent: InstanceType<typeof THREE.Group>,
+        title: string,
+        subtitle: string,
+        z: number,
+        y: number,
+        width: number,
+        height: number,
+      ) => {
         const canvas = document.createElement("canvas");
-        canvas.width = 768; canvas.height = 1024;
+        canvas.width = 768;
+        canvas.height = 1024;
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
         ctx.fillStyle = styles.getPropertyValue("--scene-ivory").trim();
@@ -129,7 +190,10 @@ export function CosmeticScene() {
         texture.colorSpace = THREE.SRGBColorSpace;
         texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
         labelTextures.push(texture);
-        const label = new THREE.Mesh(new THREE.PlaneGeometry(width, height), new THREE.MeshBasicMaterial({ map: texture, toneMapped: false }));
+        const label = new THREE.Mesh(
+          new THREE.PlaneGeometry(width, height),
+          new THREE.MeshBasicMaterial({ map: texture, toneMapped: false }),
+        );
         label.position.set(0, y, z);
         parent.add(label);
         const logo = new Image();
@@ -150,7 +214,10 @@ export function CosmeticScene() {
       pedestal.position.set(0, -1.85, 0);
       pedestal.receiveShadow = true;
       scene.add(pedestal);
-      const floor = new THREE.Mesh(new THREE.PlaneGeometry(200, 200), new THREE.ShadowMaterial({ opacity: 0.12 }));
+      const floor = new THREE.Mesh(
+        new THREE.PlaneGeometry(200, 200),
+        new THREE.ShadowMaterial({ opacity: 0.12 }),
+      );
       floor.rotation.x = -Math.PI / 2;
       floor.position.y = -1.96;
       floor.receiveShadow = true;
@@ -161,11 +228,15 @@ export function CosmeticScene() {
         pointer.x = ((event.clientX - rect.left) / rect.width - 0.5) * 0.35;
         pointer.y = ((event.clientY - rect.top) / rect.height - 0.5) * 0.12;
       };
-      const onLeave = () => { pointer.x = 0; pointer.y = 0; };
+      const onLeave = () => {
+        pointer.x = 0;
+        pointer.y = 0;
+      };
       host.addEventListener("pointermove", onMove);
       host.addEventListener("pointerleave", onLeave);
       const resize = () => {
-        const width = host.clientWidth, height = host.clientHeight;
+        const width = host.clientWidth,
+          height = host.clientHeight;
         if (!width || !height) return;
         renderer.setSize(width, height);
         camera.aspect = width / height;
@@ -178,13 +249,16 @@ export function CosmeticScene() {
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
       const clock = new THREE.Clock();
       let visible = true;
-      const visibility = new IntersectionObserver(([entry]) => { visible = entry?.isIntersecting ?? false; });
+      const visibility = new IntersectionObserver(([entry]) => {
+        visible = entry?.isIntersecting ?? false;
+      });
       visibility.observe(host);
       renderer.setAnimationLoop(() => {
         if (disposed || !visible || document.hidden) return;
         const t = clock.getElapsedTime();
         if (!reduce.matches) {
-          sculpture.rotation.y += ((Math.sin(t * 0.22) * 0.12 + pointer.x) - sculpture.rotation.y) * 0.035;
+          sculpture.rotation.y +=
+            (Math.sin(t * 0.22) * 0.12 + pointer.x - sculpture.rotation.y) * 0.035;
           sculpture.rotation.x += (-pointer.y - sculpture.rotation.x) * 0.035;
           serum.position.y = 0.13 + Math.sin(t * 0.72) * 0.1;
           sunscreen.position.y = -0.18 + Math.sin(t * 0.72 + 1.8) * 0.08;
@@ -194,7 +268,8 @@ export function CosmeticScene() {
       setReady(true);
       cleanup = () => {
         renderer.setAnimationLoop(null);
-        observer.disconnect(); visibility.disconnect();
+        observer.disconnect();
+        visibility.disconnect();
         host.removeEventListener("pointermove", onMove);
         host.removeEventListener("pointerleave", onLeave);
         scene.traverse((object) => {
@@ -205,17 +280,28 @@ export function CosmeticScene() {
           }
         });
         labelTextures.forEach((texture) => texture.dispose());
-        environment.dispose(); renderer.dispose();
+        environment.dispose();
+        renderer.dispose();
         renderer.domElement.remove();
       };
     }
-    mount().catch(() => { /* Keep official product photography when WebGL is unavailable. */ });
-    return () => { disposed = true; cleanup(); };
+    mount().catch(() => {
+      /* Keep official product photography when WebGL is unavailable. */
+    });
+    return () => {
+      disposed = true;
+      cleanup();
+    };
   }, []);
   return (
-    <div className={`cosmetic-stage ${ready ? "scene-ready" : ""}`} role="img" aria-label="Photo White : protection solaire et sérum, produits en trois dimensions animés">
+    <div
+      className={`cosmetic-stage ${ready ? "scene-ready" : ""}`}
+      role="img"
+      aria-label="Photo White : protection solaire et sérum, produits en trois dimensions animés"
+    >
       <div className="cosmetic-fallback" aria-hidden="true">
-        <img src={productImages[0]} alt="" /><img src={productImages[4]} alt="" />
+        <img src={productImages[0]} alt="" />
+        <img src={productImages[4]} alt="" />
       </div>
       <div className="cosmetic-canvas" ref={hostRef} aria-hidden="true" />
       <span className="scene-caption">PHOTO WHITE / COLLECTION ÉCLAT</span>
