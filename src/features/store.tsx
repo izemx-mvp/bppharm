@@ -20,9 +20,24 @@ function useDemoState() {
   const [notifications, setNotifications] = useState(seedNotifications);
   const [connections, setConnections] = useState([true, true, true, true, false]);
   const [rules, setRules] = useState([
-    { id: 1, condition: "Le client demande un conseiller", action: "Transférer à un humain", active: true },
-    { id: 2, condition: "Score de confiance IA < 70 %", action: "Demander validation humaine", active: true },
-    { id: 3, condition: "Le message contient « réclamation »", action: "Affecter au service client", active: true },
+    {
+      id: 1,
+      condition: "Le client demande un conseiller",
+      action: "Transférer à un humain",
+      active: true,
+    },
+    {
+      id: 2,
+      condition: "Score de confiance IA < 70 %",
+      action: "Demander validation humaine",
+      active: true,
+    },
+    {
+      id: 3,
+      condition: "Le message contient « réclamation »",
+      action: "Affecter au service client",
+      active: true,
+    },
   ]);
   const [config, setConfig] = useState<Record<string, string>>({
     brand: "Photo White",
