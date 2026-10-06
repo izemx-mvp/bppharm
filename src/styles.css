@@ -44,6 +44,8 @@
   --background: oklch(0.981 0.003 165);
   --foreground: oklch(0.265 0.021 168);
   --card: oklch(1 0 0);
+  --product-photo-surface: oklch(1 0 0);
+  --editorial-ink: oklch(0.265 0.021 168);
   --primary: oklch(0.41 0.072 171);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.942 0.023 165);
@@ -1547,7 +1549,7 @@ td small {
   height: 93%;
   width: 90%;
   object-fit: contain;
-  mix-blend-mode: multiply;
+  mix-blend-mode: normal;
   padding: 10px;
 }
 .idea-platform {
@@ -1678,7 +1680,7 @@ td small {
   height: 100%;
   width: 80%;
   object-fit: contain;
-  mix-blend-mode: multiply;
+  mix-blend-mode: normal;
 }
 .detail-section {
   border-bottom: 1px solid var(--border);
@@ -1707,7 +1709,7 @@ td small {
 .post-preview > img {
   height: 100%;
   object-fit: contain;
-  mix-blend-mode: multiply;
+  mix-blend-mode: normal;
 }
 .post-preview .status-badge {
   position: absolute;
@@ -2766,7 +2768,7 @@ td small {
   height: 100%;
   width: 90%;
   object-fit: contain;
-  mix-blend-mode: multiply;
+  mix-blend-mode: normal;
 }
 .knowledge-product-image .status-badge {
   position: absolute;
@@ -5462,6 +5464,29 @@ body {
   .panel-heading {
     padding: 20px 18px;
   }
+}
+.idea-preview,
+.detail-preview,
+.post-preview,
+.knowledge-product-image,
+.product-thumb,
+.calendar-post-detail > img,
+.order-items img {
+  background: var(--product-photo-surface);
+}
+.idea-preview > img,
+.detail-preview img,
+.post-preview > img,
+.knowledge-product-image > img {
+  padding: 12px;
+  max-width: 100%;
+}
+.community-feature h2,
+.community-feature p {
+  color: var(--editorial-ink);
+}
+.community-feature p {
+  max-width: 320px;
 }
 @media (prefers-reduced-motion: reduce) {
   *,
