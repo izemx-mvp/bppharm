@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import {
   Feather,
   Plus,
@@ -843,10 +844,10 @@ export function Planning() {
         description="Le bon contenu, au bon moment. Votre marque garde le rythme."
         action={
           <Button asChild>
-            <a href="/community">
+            <Link to="/community">
               <Plus />
               Nouvelle publication
-            </a>
+            </Link>
           </Button>
         }
       />

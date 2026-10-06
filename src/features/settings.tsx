@@ -37,7 +37,7 @@ export function Configuration({
 }: {
   kind?: "community" | "agent" | "general";
 }) {
-  const { config, setConfig } = useDemo();
+  const { config, setConfig, rules, setRules } = useDemo();
   const [draft, setDraft] = useState({ ...config });
   const [tones, setTones] = useState(
     (
@@ -54,26 +54,6 @@ export function Configuration({
   const [days, setDays] = useState(
     (config["days"] || "true,true,true,true,true,false,false").split(",").map((v) => v === "true"),
   );
-  const [rules, setRules] = useState([
-    {
-      id: 1,
-      condition: "Le client demande un conseiller",
-      action: "Transférer à un humain",
-      active: true,
-    },
-    {
-      id: 2,
-      condition: "Score de confiance IA < 70 %",
-      action: "Demander validation humaine",
-      active: true,
-    },
-    {
-      id: 3,
-      condition: "Le message contient « réclamation »",
-      action: "Affecter au service client",
-      active: true,
-    },
-  ]);
   const [rule, setRule] = useState<(typeof rules)[number] | null>(null);
   const [tab, setTab] = useState("Profil");
   const [avatar, setAvatar] = useState("");
