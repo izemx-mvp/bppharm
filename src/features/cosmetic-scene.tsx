@@ -208,7 +208,7 @@ export function CosmeticScene() {
         logo.src = logoUrl;
       };
       addLabel(serum, "ÉCLAT", "Sérum éclaircissant", 0.535, -0.25, 0.74, 1.04);
-      addLabel(sunscreen, "SPF 50+", "Protection invisible", 0.36, 0.03, 0.86, 1.22);
+      addLabel(sunscreen, "SPF 50+", "Protection invisible", 0.39, 0.03, 0.86, 1.22);
 
       const pedestal = new THREE.Mesh(new THREE.CylinderGeometry(2.25, 2.3, 0.2, 128), pale);
       pedestal.position.set(0, -1.85, 0);
