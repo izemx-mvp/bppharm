@@ -11,3 +11,4 @@
 
 - Keep this application a browser-state mock demonstration with no external AI, authentication or database calls; the brief explicitly requires simulated data and interactions.
 - Place reusable domain models and mock seeds in a shared module, page experiences in feature components and navigation in TanStack leaf routes; this keeps demonstration state consistent across screens.
+- Load cosmetic WebGL rendering only inside a browser effect and dispose its resources on unmount; this preserves SSR compatibility and avoids GPU leaks between demo screens.

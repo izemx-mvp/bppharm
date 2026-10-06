@@ -31,7 +31,7 @@ import { Switch } from "@/components/ui/switch";
 import { Slider } from "@/components/ui/slider";
 import { useDemo } from "./store";
 import { logoUrl } from "./assets";
-import editorial from "@/assets/skincare-editorial.jpg";
+import { CosmeticScene } from "./cosmetic-scene";
 export function Configuration({
   kind = "community",
 }: {
@@ -630,8 +630,8 @@ function TeamPanel() {
 }
 export function Login() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("admin@photowhite.ma");
+  const [password, setPassword] = useState("admin123");
   const [visible, setVisible] = useState(false);
   const [remember, setRemember] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -653,24 +653,19 @@ export function Login() {
   return (
     <div className="login-page">
       <div className="login-visual">
-        <img className="login-image" src={editorial} alt="Univers de soins dermocosmétiques" />
+        <div className="login-silk" aria-hidden="true" />
         <div className="login-brand">
           <img src={logoUrl} alt="Photo White" />
           <Badge>BPPHARM</Badge>
         </div>
         <div className="login-copy">
           <div className="eyebrow">VOTRE ACTIVITÉ. UNE NOUVELLE DIMENSION.</div>
-          <h1>
-            Pilotez votre activité
-            <br />
-            avec l’intelligence
-            <br />
-            artificielle.
-          </h1>
+          <h1>Pilotez votre activité avec l’intelligence artificielle.</h1>
           <p>
             Marketing, service client, commandes et performances réunis dans une seule plateforme.
           </p>
         </div>
+        <CosmeticScene />
         <div className="login-floating-stats">
           <div>
             <MessageCircle />

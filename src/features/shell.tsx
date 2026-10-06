@@ -106,6 +106,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   };
   return (
     <div className={`app-frame ${collapsed ? "is-collapsed" : ""}`}>
+      <div className="workspace-ambience" aria-hidden="true" />
       <aside className={`app-sidebar ${mobileOpen ? "mobile-open" : ""}`}>
         <Link to="/" className="brand-block">
           <img src={logoUrl} alt="Photo White" />
