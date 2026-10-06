@@ -3569,7 +3569,7 @@ td small {
     height: 250px;
   }
 }
-@media (max-width: 1400px) {
+@media (max-width: 1200px) {
   .app-frame {
     --sidebar-width: 218px;
   }
@@ -5384,7 +5384,7 @@ body {
   justify-content: center;
   padding: 9px 4px;
 }
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .kpi-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
